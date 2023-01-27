@@ -1,0 +1,7 @@
+<div class="container mx-auto my-12 p-5 pb-12 text-center border w-4/5 md:w-3/5 lg:w-2/5">
+    <h1 class="text-3xl font-semibold mt-5 mb-4 pb-1">La base de datos</h1>
+    <p class="mb-5">Aquí puedes ver todos los usuarios con sus respectivos correos para pader ingresar</p>
+    <ul>
+        <li *ngFor="let user of data">El usuario "{{user.username}}" va con el correo "{{user.email}}".</li>
+    </ul>
+</div>

@@ -1,1 +1,17 @@
-<p>home works!</p>
+<div class="container mx-auto my-12 p-5 pb-12 text-center border w-4/5 md:w-3/5 lg:w-2/5">
+    <h1 class="text-3xl font-semibold pb-1 my-5">¡Ya estas en el home!</h1>
+    <p class="mb-5">Ahora puedes ver toda la infromacion que contenía tu usuario</p>
+    <ul class="border py-5 mt-5 mb-8">
+        <li>Id: {{data.name}}</li>
+        <li>Nombre: {{data.name}}</li>
+        <li>Usuario: {{data.username}}</li>
+        <li>Correo: {{data.email}}</li>
+        <li>Direccion: {{data.address.street}}, {{data.address.city}}</li>
+        <li>Telefono: {{data.phone}}</li>
+        <li>Sitio web: {{data.website}}</li>
+        <li>Compania: {{data.company.name}}</li>
+    </ul>
+    <p class="mb-20">Y eso sería todo por ahora... Solo falta ese boton de allá abajo...</p>
+    <button class="mt-20 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2" (click)="logout()">logout</button>
+</div>
+

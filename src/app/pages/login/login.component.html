@@ -1,1 +1,34 @@
-<p>login works!</p>
+<div class="container mx-auto my-12 p-5 pb-12 text-center border w-4/5 md:w-3/5 lg:w-2/5">
+    <form [formGroup]="formLogin">
+        <h1 class="text-3xl font-semibold mt-1 mb-4 pb-1">Login</h1>
+        <p class="mb-5">Coloca el usuario y el correo para entrar al Home</p>
+        <p class="mb-5 text-red-500" *ngIf="msgCorreoInvalido"> El correo y/o el usuario no son válidos</p>
+        <div class="mb-5">
+            <label for="user" class="text-lg font-medium text-gray-900 mr-3">Username: </label>
+            <input type="text" name="user" id="user" placeholder="Ingresar usuario" formControlName="user" class="px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg transition ease-in-out m-0 focus:text-gray-700 focus:border-blue-500 focus:outline-none focus:drop-shadow-lg"><br>
+            <span appValidacion *ngIf="this.formLogin.get('user')?.invalid">
+                <span *ngIf="this.formLogin.get('user')?.dirty" class="text-red-600">(Debe tener mínimo 4 caracteres)</span>
+            </span><br>
+        </div>
+        <div>
+            <label for="email" class="text-lg font-medium text-gray-900 mr-3">Email: </label>
+            <input type="email" name="email" id="email" placeholder="Ingresar email" formControlName="email" class="px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg transition ease-in-out m-0 focus:text-gray-700 focus:border-blue-500 focus:outline-none focus:drop-shadow-lg"><br>
+            <span appValidacion *ngIf="this.formLogin.get('email')?.invalid">
+                <span *ngIf="this.formLogin.get('email')?.dirty" class="text-red-600"> (Debe ser un correo válido)</span>
+            </span><br>
+        </div>
+        <div class="my-8">
+            <button *ngIf="!formLogin.invalid" (click)="onSubmit()" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-black focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 hover:drop-shadow-lg">
+                <span class="relative px-5 py-2 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+                    Login
+                </span>
+            </button>
+            <button *ngIf="formLogin.invalid" [disabled]="formLogin.invalid" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 text-lg font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 text-black cursor-no-drop">
+                <span class="relative px-5 py-2 transition-all ease-in duration-75 bg-gray-500 rounded-md">
+                    Login
+                </span>
+            </button>
+        </div>
+    </form>
+    <p class="pt-8">Si necesitas te olvidaste del usuario, puedes ver todos <a class="border p-2 rounded-lg hover:text-white hover:bg-blue-400 hover:drop-shadow-lg" [routerLink]="['/registro']">AQUÍ</a></p>
+</div>
